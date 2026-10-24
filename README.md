@@ -4,6 +4,8 @@ Interaktive Analyse örtlicher Versorgung, ihrer Lieferketten und möglicher Kas
 
 **Dieses Lehrbeispiel entstand im Rahmen der Vorlesung „Resilienzmanagement und Bevölkerungsschutz“ von Rico Kerstan an der NBS Northern Business School, Studiengang Sicherheitsmanagement, Modul PM 4.6, Wintersemester 2026/2027.** Ausgangspunkt war die Gruppenarbeit „Vorsorge für eine reale Versorgung“ am zweiten Lehrtag, dem 24. Oktober 2026. Das vorliegende Werkzeug wurde aus einem Offshore-Beispiel anschließend im KI-gestützten Dialog zu einem Rostocker Versorgungsnetz weiterentwickelt.
 
+**[Anwendung direkt im Browser öffnen](https://krkerstan.github.io/rostock-versorgungsnetz/)** · [Repository auf GitHub](https://github.com/KRKerstan/rostock-versorgungsnetz)
+
 ## Starten
 
 Repository herunterladen oder klonen und [index.html](index.html) lokal im Browser öffnen. Für die Nutzung sind kein Server, keine Anmeldung und keine zusätzlichen Pakete erforderlich. Geometrien, Modelldaten und Anwendungscode sind eingebettet; es gibt keine externen Kartenkacheln oder eingebundenen Skripte. Verweise auf Quellen werden nur beim Öffnen der Links aufgerufen.
