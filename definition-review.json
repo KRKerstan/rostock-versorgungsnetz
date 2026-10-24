@@ -1,0 +1,180 @@
+{
+  "checked_at": "2026-10-24",
+  "scope": "Vergleich öffentlich zugänglicher Länderquellen, keine vollständige Synopse sämtlicher Gesetze und Verordnungen. Quellenarten und historische Kontexte werden getrennt ausgewiesen. Die Merkmale unten sind eine fachliche Operationalisierung, keine amtlichen Schwellen oder Klassifikation.",
+  "states": [
+    {
+      "state": "Baden-Württemberg",
+      "kind": "Fachdefinition",
+      "definition": "Übernimmt den folgenbezogenen Bundesbegriff; nennt auch Staat/Verwaltung sowie Medien/Kultur.",
+      "implication": "Staatliche Koordination und Kriseninformation gehören in die Analyse.",
+      "status": "Innenministerium, Fachseite",
+      "refs": [
+        "state-0"
+      ]
+    },
+    {
+      "state": "Bayern",
+      "kind": "Fachkonzept / Beratung",
+      "definition": "LSI betrachtet lebenswichtige Infrastrukturen und berät auch kleine und mittelgroße Betreiber.",
+      "implication": "Unternehmensgröße allein ist kein Ausschlussgrund für örtliche Vorsorge.",
+      "status": "LSI, Fachseite; keine vollständige Prüfung des Landesrechts",
+      "refs": [
+        "state-1"
+      ]
+    },
+    {
+      "state": "Berlin",
+      "kind": "Koordinierungsstruktur",
+      "definition": "Fachverwaltungen beaufsichtigen ihre KRITIS-Bereiche; die Innenverwaltung koordiniert ressortübergreifend.",
+      "implication": "Koordination und funktionierende Fachverwaltung als eigene Abhängigkeiten.",
+      "status": "Senatsverwaltung; keine zusätzliche allgemeine Definition aus dieser Seite abgeleitet",
+      "refs": [
+        "state-2"
+      ]
+    },
+    {
+      "state": "Brandenburg",
+      "kind": "Fachdefinition / CER-Kontext",
+      "definition": "Verwendet den folgenbezogenen Bundesbegriff und erläutert wesentliche Dienste für gesellschaftliche Funktionen, Gesundheit, Sicherheit und Umwelt.",
+      "implication": "Versorgungsfunktion und gesellschaftliche Folgen statt reiner Betreibergröße.",
+      "status": "Innenministerium, Fachseite",
+      "refs": [
+        "state-3"
+      ]
+    },
+    {
+      "state": "Bremen",
+      "kind": "Strategie 2023",
+      "definition": "Cybersicherheitsstrategie unterscheidet regulierte KRITIS und weitere systemrelevante Unternehmen; damals fehlte ein einheitlicher Standard darunter.",
+      "implication": "Vorleister aufnehmen; die Aussage von 2023 nicht als heutige Rechtslage ausgeben.",
+      "status": "Historischer Strategie-Stand 2023",
+      "refs": [
+        "state-4"
+      ]
+    },
+    {
+      "state": "Hamburg",
+      "kind": "Fachliche Sektorenübersicht",
+      "definition": "Führt zusätzlich unter anderem Staat/Verwaltung, Medien/Kultur und Weltraum auf und unterscheidet physischen Schutz vom IT-Sicherheitsrecht.",
+      "implication": "Verwaltung und Kriseninformation ergänzen die bisherige BSI-Matrix.",
+      "status": "Behörde für Inneres und Sport, Fachseite",
+      "refs": [
+        "state-5"
+      ]
+    },
+    {
+      "state": "Hessen",
+      "kind": "Fachliche Begriffsabgrenzung",
+      "definition": "Externe Partner sind durch ihren Beitrag zur Bereitstellung einer kritischen Dienstleistung systemrelevant; kein pauschales Berufsmerkmal.",
+      "implication": "Wartung, Material, Personal und Ersatzlogistik separat als Ermöglicher erfassen.",
+      "status": "Corona-Kontext; fachliche Abgrenzung, keine Übernahme historischer Sonderrechte",
+      "refs": [
+        "state-6"
+      ]
+    },
+    {
+      "state": "Mecklenburg-Vorpommern",
+      "kind": "Landesgesetz 2026",
+      "definition": "§ 34 LKatSG: Bedeutung für das Gemeinwesen und gravierende Ausfallfolgen. § 27 behandelt die Fortführung essenzieller staatlicher Aufgaben.",
+      "implication": "Örtliche Einrichtungen einzelfallbezogen prüfen; konkrete Rechtsstellung nicht allein aus BSI-Schwellen ableiten.",
+      "status": "Neufassung 9.07.2026; amtlicher Viewer technisch eingeschränkt, LPBK und zusätzliche Textfassung abgeglichen",
+      "refs": [
+        "state-7"
+      ]
+    },
+    {
+      "state": "Niedersachsen",
+      "kind": "Landesgesetz",
+      "definition": "§ 5a erfasst Bundes-KRITIS und zusätzlich nach Landesrecht eingestufte Einrichtungen; weitere Aufnahme auf Antrag ist vorgesehen.",
+      "implication": "Fachliche Kritikalität und förmliche Einstufung als getrennte Felder führen.",
+      "status": "Amtliches Vorschriftenportal; kein Nachweis konkreter Einstufungen in Rostock",
+      "refs": [
+        "state-8"
+      ]
+    },
+    {
+      "state": "Nordrhein-Westfalen",
+      "kind": "Fachdefinition / Forschungsbericht",
+      "definition": "SubKRITIS-Bericht behandelt Einrichtungen mit wesentlichen gesellschaftlichen Funktionen und erheblichen Ausfallfolgen.",
+      "implication": "Auch unterhalb bundesrechtlicher Schwellen die Funktion für die Kommune prüfen.",
+      "status": "LANUV-Forschungsbericht; fachlicher Ansatz, kein Einstufungsbescheid",
+      "refs": [
+        "state-9"
+      ]
+    },
+    {
+      "state": "Rheinland-Pfalz",
+      "kind": "Fachdefinition / Katastrophenschutz",
+      "definition": "LfBK übernimmt den folgenbezogenen Bundesbegriff und unterstützt kommunale Aufgabenträger sowie die Vernetzung staatlicher und privater Akteure.",
+      "implication": "Lokale Versorgungsfunktionen und gemeinsame Vorsorge berücksichtigen.",
+      "status": "LfBK, Fachseite",
+      "refs": [
+        "state-10"
+      ]
+    },
+    {
+      "state": "Saarland",
+      "kind": "Thematische Verwendung",
+      "definition": "Kinder- und Jugendbericht beschreibt Jugendhilfe als systemrelevant für Schule, Prävention, Integration und Inklusion.",
+      "implication": "Betreuung als gesellschaftliche Stütze untersuchen; daraus folgt keine allgemeine KRITIS-Legaldefinition.",
+      "status": "Landesbericht, S. 147; allgemeine aktuelle Betreiberdefinition damit nicht nachgewiesen",
+      "refs": [
+        "state-11"
+      ]
+    },
+    {
+      "state": "Sachsen",
+      "kind": "Fachseite",
+      "definition": "Erläutert den Bundesbegriff sowie Vernetzung, Versorgungsgebiet und Funktion als Basisinfrastruktur.",
+      "implication": "Reichweite und Vernetzung in der örtlichen Prüfung berücksichtigen.",
+      "status": "Landesfachseite; dortige Aussage zum Gesetzesstand hier nicht als vollständige Rechtsprüfung übernommen",
+      "refs": [
+        "state-12"
+      ]
+    },
+    {
+      "state": "Sachsen-Anhalt",
+      "kind": "Vorsorge / Ressortkoordination 2026",
+      "definition": "Resilienz-Stab soll die Krisenvorsorge von Fachressorts wegen gegenseitiger Infrastrukturabhängigkeiten koordinieren.",
+      "implication": "Verwaltungsfähigkeit und wechselseitige Abhängigkeiten berücksichtigen.",
+      "status": "Ministeriumsmitteilung 17.02.2026; Koordinierungsauftrag, keine neue Legaldefinition",
+      "refs": [
+        "state-13"
+      ]
+    },
+    {
+      "state": "Schleswig-Holstein",
+      "kind": "Fachdefinition",
+      "definition": "Übernimmt den folgenbezogenen Bundesbegriff; nennt als Spannweite Pflegeeinrichtungen und Stromversorgung.",
+      "implication": "Pflege nicht pauschal außerhalb KRITIS verorten.",
+      "status": "Landesfachseite, Aktualisierung 4.03.2025",
+      "refs": [
+        "state-14"
+      ]
+    },
+    {
+      "state": "Thüringen",
+      "kind": "Fachdefinition 2024",
+      "definition": "Verfassungsschutzbericht verwendet die Folgen für Versorgung und öffentliche Sicherheit als Begriffsmaßstab.",
+      "implication": "Allgemeinen Folgenmaßstab nutzen; keine aktuelle Branchenpflicht daraus ableiten.",
+      "status": "Verfassungsschutzbericht 2024, S. 117, Fußnote 82",
+      "refs": [
+        "state-15"
+      ]
+    }
+  ],
+  "criteria": [
+    "Unverzichtbare Funktion und betroffene Schutzgüter",
+    "Ausmaß und Dauer des Versorgungsdefizits",
+    "Betroffene Gruppen und besondere Verletzlichkeit",
+    "Erreichbare, unabhängige Ersatzangebote und deren Kapazität",
+    "Kaskaden auf andere Versorgungsfunktionen",
+    "Zeit bis zur Einschränkung und Aufwand der Wiederherstellung"
+  ],
+  "roles": {
+    "direct": "Unmittelbare Versorgung",
+    "support": "Soziale Teilhabe / Schutz verletzlicher Gruppen",
+    "enabler": "Vorleistung · Systemrelevanz zu prüfen",
+    "response": "Gefahrenabwehr / staatliche Handlungsfähigkeit"
+  }
+}
