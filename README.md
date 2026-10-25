@@ -48,6 +48,12 @@ Die bereitgestellte Gruppenausarbeitung **„Lösung_ RAGO Offshore-Anlagen & NE
 
 Die Erweiterung verfolgt die Folgen bis zu benötigten Leistungen für die Stadtgemeinschaft und ergänzt Lieferketten, unterschiedliche Lebenslagen, örtlich kritische Angebote, Behördenfunktionen und mögliche Rückwirkungen. **Ein Offshore-Ausfall bedeutet im Modell nicht automatisch einen Stromausfall in Rostock.** Die Kompensation im Verbundnetz ist als Annahme berücksichtigt; reale Lastflüsse werden nicht berechnet. Die technische Einordnung und Beziehungen der Ausgangsausarbeitung werden deshalb nicht ungeprüft als Tatsachen übernommen. Ihre Titelbegriffe bezeichnen das Ausgangsmaterial und werden nicht als Nachweis eines validierten Analyseverfahrens verwendet.
 
+## Kommunale Kapazitäten statt einzelner Betriebsausfälle
+
+Alle 36 Versorgungspfade werden über ein deterministisches Kapazitäts- und Bestandsmodell in 0,5-h-Schritten berechnet. Es unterscheidet erreichbare Alternativen, gebundene Leistungen, Netzmonopole und unterschiedliche notwendige Komponenten. Ein einzelner Apothekenausfall ist bei ausreichender verbleibender Kapazität grün. Personal-Quereffekte aus Betreuungsausfällen werden mit Anteilen, Ersatzbetreuung, Reserven und Verzögerungen gerechnet. Die [Gleichungen und Beispiele](AUSWIRKUNGSLOGIK.md) machen die Berechnung nachvollziehbar.
+
+Für eine andere Kommune lässt sich ein neutrales Profil anlegen, bearbeiten, exportieren und importieren. Die 13 Personas und die Gemeinschaftssicht stammen immer aus demselben persistenten Katalog; die gewählte Persona bleibt auch nach dem Neuladen erhalten. Siehe [Kommunenprofile](KOMMUNENPROFILE.md).
+
 ## Was die Anwendung zeigt
 
 Stand dieser Veröffentlichung: 25. Oktober 2026.
@@ -58,19 +64,27 @@ Stand dieser Veröffentlichung: 25. Oktober 2026.
 | BSI-Matrix | 21 Dienstleistungsgruppen der zugrunde gelegten BSI-KritisV, unabhängig von einer Einzeleinstufung der gezeigten Betreiber |
 | Ergänzende örtliche Funktionen | 15 Funktionen einschließlich Apotheke, Hausarztpraxis, Pflege, Einkauf, Tafel, Mahlzeiten, Hausnotruf, Gefahrenabwehr, Kriseninformation, Betreuung, Reparatur und Gebäudebetrieb |
 | Lieferketten | 62 benannte Vorleistungsstränge mit je zwei bis fünf vorgelagerten Stufen |
-| Gesamtnetz | 438 Knoten und 1.335 Verbindungen: ursprünglicher Graph mit 268 Knoten / 669 Beziehungen plus 170 Anbieter-Knoten / 666 Marktverbindungen |
+| Gesamtnetz | 438 Knoten; ursprüngliche Beziehungen und Marktbezüge werden durch explizite Anbieterpool-, gemeinsame Vorleistungs- und Personalverflechtungen ergänzt |
 | Marktrecherche | 59 Teilmärkte mit je drei Anbieterbeispielen; vier belegte Top-3, davon zwei mit Prozentanteilen; 55 Rangfolgen offen |
 | Geografie | Europakarte; in Deutschland zuschaltbare Grenzen von 16 Bundesländern und 400 Kreisen bzw. kreisfreien Städten |
 | Quellenvergleich | Öffentlich zugängliche Quellen aus allen 16 Ländern, mit besonderer Betrachtung Mecklenburg-Vorpommerns und ausdrücklichen Aussagegrenzen |
+
+### Auswirkungsampel und 14 Tage
+
+- **Grün:** betriebliche/persönliche Auswirkungen bei gedecktem kommunalem Modellbedarf; Eigenvorsorge und erforderliche individuelle Hilfe.
+- **Gelb:** örtliche Gemeinschaftsleistung beeinträchtigt, ohne Rot-Kriterium.
+- **Rot:** überörtliche Wirkung als Annahme, beeinträchtigte 112-Funktion oder gleichzeitig mindestens zwei lebensnotwendige Versorgungsbereiche über der eingestellten Unterdeckungsschwelle (voreingestellt 10 % je Bereich).
+
+Die Regeln sind eine eigene Ableitung aus BBK, BABS und FEMA, keine amtlichen Warnstufen. Das feste Fenster umfasst **336 Stunden**, unabhängig von der Dauer des Ausgangsausfalls. Die BBK-Vorsorgemarken von drei und zehn Tagen sind gesondert markiert; vierzehn Tage sind hier der erweiterte Analysehorizont. Vorräte können persönliche Folgen verschieben, ohne den Betriebsausfall zu beseitigen. R3G nach Kerstan/Röhl ergänzt die Maßnahmenreflexion, ohne einen automatischen Reifegrad zu erzeugen.
 
 ### Bedienung
 
 1. Zwischen Europakarte, Sektorennetz und Versorgungsebenen wählen.
 2. Einen Knoten auswählen oder nach einer Funktion suchen. Die vollständigen vorgelagerten und nachgelagerten Ketten werden hervorgehoben; die Pfeile zeigen vom Bedarf zur benötigten Vorleistung. Eine Störung wirkt entgegen der Pfeilrichtung.
 3. Die ausgewählte Funktion als Ausfall setzen und Dauer sowie Betrachtungszeitpunkt verändern. Die Wiedergabe zeigt den angenommenen Verlauf.
-4. Den kritischen Pfad ansehen: Er bezeichnet die kürzeste im Modell wirksame Überbrückung bis zu einer Persona. Er beschreibt weder die größte Schadenschwere noch die Eintrittswahrscheinlichkeit.
+4. Den kritischen Pfad ansehen: Er bezeichnet den frühesten berechneten persönlichen Bedarfsengpass nach Beständen, Kapazitäten und Ersatzmöglichkeiten. Er beschreibt weder die größte Schadenschwere noch die Eintrittswahrscheinlichkeit.
 5. Unter „Lieferketten einer örtlichen Funktion“ die Stränge öffnen. Jede Kante zeigt Übungspuffer, Beziehungsnachweis und Klärungsbedarf. Einzelne Lieferstufen können als Störung gewählt werden.
-6. Unter „Anbieter, Konzentration und Belastbarkeit“ die Markteinordnung zur Auswahl, belegte Top-3 oder alle Profile öffnen. Violette Marktverbindungen sind keine Lieferbeziehungen und übertragen keine Ausfälle.
+6. Unter „Anbieter, Konzentration und Belastbarkeit“ die Markteinordnung zur Auswahl, belegte Top-3 oder alle Profile öffnen. Potenzielle Beschaffungswege können als Stressannahme gerechnet werden; reine Wettbewerbervergleiche bleiben ohne Ausfallwirkung.
 7. Annahmen verändern und mit einem gemerkten Stand vergleichen. Die zusätzliche Personalfolge durch Betreuungsausfall ist separat schaltbar.
 
 Mehrere Organisationen am selben Ort lassen sich auffächern. Die Ortsmarker sind ungefähre Ortsmittelpunkte; aufgefächerte Beschriftungen sind keine Gebäudeadressen. Unbekannte Lieferanten erhalten keine erfundene Kartenposition.
@@ -81,12 +95,12 @@ Mehrere Organisationen am selben Ort lassen sich auffächern. Die Ortsmarker sin
 
 - Öffentlich belegte Rollen und Beziehungen, funktionale Annahmen, historische Bezüge und offene Lieferanten werden unterschieden. Ein Beleg der Existenz eines Unternehmens belegt keinen konkreten Liefervertrag.
 - Sämtliche Stundenwerte und Puffer sind Übungsannahmen. Sie sind keine medizinischen Fristen, rechtlichen Mindestvorgaben oder zugesicherten Betreiberwerte.
-- Mehrere benötigte Vorleistungen werden im Modell über den frühesten wirksamen Engpass verknüpft. Kapazitäten, Produktunterschiede, Teilbetrieb, Transportmengen und unabhängige Alternativen sind nicht vollständig abgebildet.
-- Eine Rückkehr nach Ablauf der Ausgangsstörung ersetzt keine reale Wiederanlaufplanung. Wahrscheinlichkeiten und physikalische Netzflüsse werden nicht modelliert.
+- Notwendige Vorleistungen begrenzen die Kapazität; Alternativen und Reserven werden über Anbieterpools zusammengeführt. Produktunterschiede und Mengen sind nur im beschriebenen normierten Modell abgebildet, keine produktscharfe Logistikplanung.
+- Bestände und zeitversetzte Personalfolgen werden über das Ende der Ausgangsstörung hinaus fortgeschrieben; das ersetzt keine reale Wiederanlaufplanung. Wahrscheinlichkeiten und physikalische Netzflüsse werden nicht modelliert.
 - Die Personas sind fiktiv. Es werden keine tatsächlichen Patienten-, Haushalts-, Beschäftigten- oder Dienstplandaten verwendet.
 - Weder die Aufnahme in die Karte noch das Erreichen einer fiktiven Zeitgrenze stellt eine behördliche KRITIS-Einstufung dar. Der Ländervergleich ist keine vollständige Synopse sämtlicher aktueller Rechtsvorschriften.
 
-**Ein betrieblich validierter Ausfallpfad liegt noch nicht vor.** Eine beliebige Lieferantenzuteilung würde diese Datenlücke nicht schließen. Für Marktanbieter ohne bestätigte Kundenbeziehungen lautet das Ergebnis „Ausfallfolge nicht bestimmbar“, nicht „kein Engpass“. Der kritische Pfad zeigt deshalb eine Nachweisprüfung pro Kante. Die Anforderungen an ein empirisch belastbares Modell stehen in [MODELLVALIDIERUNG.md](MODELLVALIDIERUNG.md); das [CSV-Prüfblatt](lieferbeziehungen-pruefung.csv) erfasst fehlende Betriebs- und Lieferdaten.
+**Das Werkzeug untersucht potenzielle Kaskaden einer Kommune.** Plausible Modellannahmen genügen für diese Untersuchung. Eine Betreiberbestätigung wird nicht vorausgesetzt; Annahmen und Quellen bleiben unterscheidbar. Die [Auswirkungslogik](AUSWIRKUNGSLOGIK.md) erklärt Ampel, Berechnung, Vorsorge und R3G. Das [CSV-Prüfblatt](lieferbeziehungen-pruefung.csv) kann Annahmen später schärfen.
 
 [MODELL.md](MODELL.md) erläutert Datenmodell, Quellenprüfung, Berechnungsregeln, Abgrenzungen und Verifikation ausführlich.
 
@@ -114,6 +128,13 @@ Der beschriebene Lehrkontext bedeutet keine fachliche oder rechtliche Freigabe s
 | `index.html` | Direkt nutzbare, generierte Anwendung |
 | `index.template.html` | HTML, CSS und JavaScript ohne eingebettete Modelldaten |
 | `model.json` | Funktionen, Organisationen, Personas, Kanten, Lieferketten und Quellen |
+| `capacity-model.js` | Deterministische Kapazitäts-, Bestands- und Personalrechnung |
+| `municipality-profile.json` / `municipality-template.json` | Kommunenprofil und neutrale Vorlage |
+| `municipality-profile.js` | Profilprüfung, Übertragung und lokale Speicherung |
+| `persona-catalog.json` | Gemeinsamer versionierter Katalog für alle Kommunen |
+| `KOMMUNENPROFILE.md` | Profilwechsel, Import/Export und Persona-Persistenz |
+| `impact-policy.json` / `impact-logic.js` | Quellen, Ampeldefinition und reine Bewertungsfunktionen |
+| `AUSWIRKUNGSLOGIK.md` | Nachvollziehbare Berechnung, 14-Tage-Horizont und R3G-Bezug |
 | `market-research.json` | Marktprofile, Anbieter, Quellenstatus und Einordnung aller ursprünglichen Knoten |
 | `MODELLVALIDIERUNG.md` | Aussagevertrag, Validierungsgrenzen und Anforderungen an Betriebsdaten |
 | `lieferbeziehungen-pruefung.csv` | Erhebungsblatt für konkrete Liefer- und Ausfallbeziehungen |
@@ -130,7 +151,7 @@ ruby build.rb
 
 Der Build benötigt nur Ruby mit den Standardbibliotheken JSON und Pathname. Er prüft unter anderem eindeutige Knoten, Kantenendpunkte, vollständige Dienstleistungsgruppen sowie die Mindesttiefe und lückenlose Verbindung aller ausgewiesenen Lieferketten. Fachliche Aussagen und real vorhandene Ersatzkapazitäten müssen zusätzlich anhand ihrer Quellen geprüft werden.
 
-Der optionale Browsercheck `tests/browser-check.cjs` benötigt Playwright und Chromium in der Testumgebung (`node tests/browser-check.cjs`). `CHROME_PATH` kann einen vorhandenen Browser, `MODEL_URL` eine bereitgestellte Instanz angeben. Er prüft insbesondere, dass Marktverbindungen keine Ausfälle übertragen und unbekannte Lieferbeziehungen nicht als Nullwirkung erscheinen. Für die Anwendung selbst werden diese Testwerkzeuge nicht benötigt.
+Der optionale Browsercheck `tests/browser-check.cjs` benötigt Playwright und Chromium in der Testumgebung (`node tests/browser-check.cjs`). `CHROME_PATH` kann einen vorhandenen Browser, `MODEL_URL` eine bereitgestellte Instanz angeben. Er prüft insbesondere die Trennung von Angebotsvergleichen und aktivierten potenziellen Beschaffungswegen. `node tests/capacity-model.test.cjs` prüft die Kapazitäts-, Bestands- und Personalrechnung und `node tests/impact-logic.test.cjs` die Ampelregeln ohne zusätzliche Pakete; `tests/browser-check.cjs` und `tests/municipality-browser.cjs` prüft die integrierte Ampel und den festen 14-Tage-Horizont. Für die Anwendung selbst werden diese Testwerkzeuge nicht benötigt.
 
 ## Lizenzen und Kartennachweise
 

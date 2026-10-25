@@ -7,6 +7,8 @@ Das ursprüngliche Szenarionetz umfasst 268 Knoten und 669 Beziehungen; 170 Anbi
 und 666 ausdrücklich nicht kausale Marktverbindungen ergänzen die Marktsicht.
 Die Aussage- und Validierungsgrenzen stehen in [MODELLVALIDIERUNG.md](MODELLVALIDIERUNG.md).
 
+**Aktueller Rechenkern:** [Deterministische Auswirkungslogik](AUSWIRKUNGSLOGIK.md) und [Kommunenprofile](KOMMUNENPROFILE.md). Ältere Abschnitte zur additiven kürzesten-Pfad-Rechnung beschreiben den Entwicklungsstand vor der Kapazitätserweiterung.
+
 ## Starten und bauen
 
 `index.html` direkt im Browser öffnen. Es sind kein Server, keine externen
@@ -353,6 +355,18 @@ Annahmensätzen einschließlich veränderter Puffer und Personalfolge ein/aus.
 
 Die aktuelle Erweiterung wird in [MODELLVALIDIERUNG.md](MODELLVALIDIERUNG.md) vollständig abgegrenzt. `market-research.json` ergänzt 59 Teilmärkte, 170 Anbieter-Knoten und 666 ausschließlich nicht kausale Marktverbindungen. Die 268 ursprünglichen Knoten bleiben erhalten und werden jeweils begründet eingeordnet. Der Gesamtgraph enthält 438 Knoten und 1.335 Verbindungen. Nur vier Marktprofile besitzen eine belegte Top-3, davon zwei Prozentanteile; die übrigen 55 Profile sind Anbieterbeispiele ohne belegte Rangfolge.
 
-`build.rb` prüft die neue Datenabdeckung und bettet Marktinformationen, zusätzliche Knoten und die Nachweisprüfung ein. Anbieter werden nicht automatisch zu Lieferanten. Marktkontext kann in keiner Schalterstellung eine Ausfallkaskade auslösen. Bei Auswahl eines Marktanbieters ohne bestätigte Kundenbeziehung zeigen Generator, Matrix, örtliche Folgen und Annahmenvergleich ausdrücklich unbekannte Auswirkungen. Eine fehlende Kante bedeutet keine bestätigte Versorgungssicherheit. Der Nachweisstatus jeder Kante des kritischen Pfads ist sichtbar; sämtliche Ausfallmechanismen, Ersatzkapazitäten und Zeitwerte bleiben betrieblich zu bestätigen.
+`build.rb` prüft die neue Datenabdeckung und bettet Marktinformationen, zusätzliche Knoten und die Nachweisprüfung ein. Eine potenzielle Anbieterbeziehung wird als Modellannahme kenntlich gemacht, nicht als tatsächlicher Vertrag. Aktivierte potenzielle Beschaffungswege können als Stressannahme wirken; reine Angebotsvergleiche bleiben ohne Ausfallwirkung. Bei Auswahl eines Marktanbieters ohne bestätigte Kundenbeziehung zeigen Generator, Matrix, örtliche Folgen und Annahmenvergleich ausdrücklich unbekannte Auswirkungen. Eine fehlende Kante bedeutet keine bestätigte Versorgungssicherheit. Der Nachweisstatus jeder Kante des kritischen Pfads ist sichtbar; sämtliche Ausfallmechanismen, Ersatzkapazitäten und Zeitwerte bleiben betrieblich zu bestätigen.
 
 Die bestehende kürzeste-Pfad-Rechnung bleibt eine bedingte Rechnung mit notwendigen Vorleistungen und additiven Übungspuffern. Sie modelliert keine kapazitätsgeprüfte Alternative und keine gesamte Rostocker Marktversorgung. Physische Redundanz, Teilkapazitäten, Lagerverbrauch und Wiederanlauf dürfen erst mit bestätigten Daten als reale Kontinuität gerechnet werden. Das Prüfblatt erfasst hierfür die 270 ursprünglichen Fachkanten.
+
+
+## Ampel und 14-Tage-Potenzialanalyse · 25.10.2026
+
+Die aktuelle fachliche Definition steht in [AUSWIRKUNGSLOGIK.md](AUSWIRKUNGSLOGIK.md). `impact-policy.json` enthält Quellen, Regeln und Funktionszuordnung; `impact-logic.js` berechnet Stufenverlauf und knotenbezogene gesellschaftliche Folgen. Die Ampel trennt persönliche, lokale und größere/systemische Auswirkungen und zeigt den jeweiligen Grund. Das Fenster ist immer 336 Stunden lang; Dauer des Ausgangsausfalls und Beobachtungszeit bleiben getrennt. Persönliche Reserven wirken auf die passenden Persona-Pfade, ohne betriebliche Ausfälle zu verschieben.
+
+Potenzielle Beschaffungsbeziehungen sind standardmäßig als Stressannahmen aktivierbar. Drei Anbieter sind keine automatisch verfügbare Redundanz. R3G dient zur Reflexion von Vorbereitung und Maßnahmen, nicht zur automatischen Berechnung von Reifegrad oder Pufferstunden. Ein früherer Anspruch, alle Ausfallpfade vor einer Modellnutzung betrieblich validieren zu müssen, gilt für diese ausdrücklich potenzielle kommunale Analyse nicht.
+
+
+## Deterministische Kapazitätsrechnung und Profile · 25.10.2026
+
+Die Auswirkungsrechnung verwendet jetzt `capacity-model.js`: partielle Leistungsfähigkeit, Anfangsbestände, Anbieterpools, feste Bindungen, gemeinsame Ursachen und zeitversetzte Personal-Quereffekte. Der früheste persönliche Engpass wird aus diesem Verlauf bestimmt; er ist keine bloße Summe von Kantenpuffern. Alle 36 Versorgungspfade haben einen Pool. Kommunenprofile sind unabhängig vom einmaligen, persistenten Persona-Katalog. Die verbindliche aktuelle Beschreibung steht in AUSWIRKUNGSLOGIK.md und KOMMUNENPROFILE.md.

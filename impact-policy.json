@@ -1,0 +1,555 @@
+{
+  "version": "2.0",
+  "reviewed": "2026-10-25",
+  "horizon_hours": 336,
+  "red_min_essential_domains": 2,
+  "essential_domain_labels": {
+    "water": "Trinkwasser",
+    "food": "Lebensmittel",
+    "remedies": "Arzneimittel / Medizinprodukte"
+  },
+  "societal_units": [
+    {
+      "id": "service:power",
+      "name": "Stromversorgung",
+      "nodes": [
+        "k:power"
+      ],
+      "sector": "Energie",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:gas",
+      "name": "Gasversorgung",
+      "nodes": [
+        "k:gas"
+      ],
+      "sector": "Energie",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:fuel",
+      "name": "Kraftstoff- und Heizölversorgung",
+      "nodes": [
+        "k:fuel"
+      ],
+      "sector": "Energie",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:heat",
+      "name": "Fernwärmeversorgung",
+      "nodes": [
+        "k:heat"
+      ],
+      "sector": "Energie",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:water",
+      "name": "Trinkwasserversorgung",
+      "nodes": [
+        "k:water"
+      ],
+      "sector": "Wasser",
+      "essential_domain": "water",
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:sewage",
+      "name": "Abwasserbeseitigung",
+      "nodes": [
+        "k:sewage"
+      ],
+      "sector": "Wasser",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:food",
+      "name": "Lebensmittelversorgung",
+      "nodes": [
+        "k:food"
+      ],
+      "sector": "Ernährung",
+      "essential_domain": "food",
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:comms",
+      "name": "Sprach- und Datenübertragung",
+      "nodes": [
+        "k:comms"
+      ],
+      "sector": "IT / TK",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:hosting",
+      "name": "Datenspeicherung und -verarbeitung",
+      "nodes": [
+        "k:hosting"
+      ],
+      "sector": "IT / TK",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:hospital",
+      "name": "Stationäre medizinische Versorgung",
+      "nodes": [
+        "k:hospital"
+      ],
+      "sector": "Gesundheit",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:devices",
+      "name": "Unmittelbar lebenserhaltende Medizinprodukte als Verbrauchsgüter",
+      "nodes": [
+        "k:devices"
+      ],
+      "sector": "Gesundheit",
+      "essential_domain": "remedies",
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:meds",
+      "name": "Verschreibungspflichtige Arzneimittel sowie Blut- und Plasmakonzentrate",
+      "nodes": [
+        "k:meds"
+      ],
+      "sector": "Gesundheit",
+      "essential_domain": "remedies",
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:lab",
+      "name": "Laboratoriumsdiagnostik",
+      "nodes": [
+        "k:lab"
+      ],
+      "sector": "Gesundheit",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:cash",
+      "name": "Bargeldversorgung",
+      "nodes": [
+        "k:cash"
+      ],
+      "sector": "Finanzen",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:card",
+      "name": "Kartengestützter Zahlungsverkehr",
+      "nodes": [
+        "k:card"
+      ],
+      "sector": "Finanzen",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:payment",
+      "name": "Konventioneller Zahlungsverkehr",
+      "nodes": [
+        "k:payment"
+      ],
+      "sector": "Finanzen",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:securities",
+      "name": "Wertpapier-/Derivatehandel, Verrechnung und Abwicklung",
+      "nodes": [
+        "k:securities"
+      ],
+      "sector": "Finanzen",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:social",
+      "name": "Leistungen der Sozialversicherung",
+      "nodes": [
+        "k:social"
+      ],
+      "sector": "Soziales",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:basic",
+      "name": "Grundsicherung für Arbeitsuchende",
+      "nodes": [
+        "k:basic"
+      ],
+      "sector": "Soziales",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:mobility",
+      "name": "Personen- und Güterverkehr",
+      "nodes": [
+        "k:mobility"
+      ],
+      "sector": "Verkehr",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "service:waste",
+      "name": "Entsorgung von Siedlungsabfällen",
+      "nodes": [
+        "k:waste"
+      ],
+      "sector": "Abfall",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Beeinträchtigung mindestens eines modellierten Beispielpfads; keine Gesamtmarkt- oder Kapazitätsaussage."
+    },
+    {
+      "id": "local:local-pharmacy",
+      "name": "Gesundcenter Apotheke Reutershagen",
+      "nodes": [
+        "out-local-pharmacy"
+      ],
+      "sector": "Gesundheit",
+      "essential_domain": "remedies",
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-gp",
+      "name": "Hausarztpraxis Bätje / Hohlbein",
+      "nodes": [
+        "out-local-gp"
+      ],
+      "sector": "Gesundheit",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-care",
+      "name": "DRK Rostock · ambulante Pflegedienste",
+      "nodes": [
+        "out-local-care"
+      ],
+      "sector": "Soziales",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-market",
+      "name": "E center Schlickeisen",
+      "nodes": [
+        "out-local-market"
+      ],
+      "sector": "Ernährung",
+      "essential_domain": "food",
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-tafel",
+      "name": "Diakonie Rostocker Stadtmission · Rostocker Tafel",
+      "nodes": [
+        "out-local-tafel"
+      ],
+      "sector": "Soziales",
+      "essential_domain": "food",
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-meals",
+      "name": "DRK Rostock · Essen auf Rädern",
+      "nodes": [
+        "out-local-meals"
+      ],
+      "sector": "Soziales",
+      "essential_domain": "food",
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-alarm",
+      "name": "DRK Rostock · Hausnotruf",
+      "nodes": [
+        "out-local-alarm"
+      ],
+      "sector": "Soziales",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-112",
+      "name": "Rostock · Integrierte Leitstelle 112",
+      "nodes": [
+        "out-local-112"
+      ],
+      "sector": "Staat / Verwaltung",
+      "essential_domain": null,
+      "critical_response": true,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-command",
+      "name": "Rostock · Katastrophenschutz / Krisenkoordination",
+      "nodes": [
+        "out-local-command"
+      ],
+      "sector": "Staat / Verwaltung",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-points",
+      "name": "Rostock · Notfalltreffpunkte (Ereignisangebot)",
+      "nodes": [
+        "out-local-points"
+      ],
+      "sector": "Staat / Verwaltung",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-radio",
+      "name": "NDR · regionale Kriseninformation für Rostock",
+      "nodes": [
+        "out-local-radio"
+      ],
+      "sector": "Medien / Information",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-childcare",
+      "name": "DRK Rostock · Kitas und Horte",
+      "nodes": [
+        "out-local-childcare"
+      ],
+      "sector": "Soziales",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-repair",
+      "name": "HTL Haus-Elektrotechnik Lehmkuhl GmbH",
+      "nodes": [
+        "out-local-repair"
+      ],
+      "sector": "Energie",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-building",
+      "name": "KOE Rostock · kommunale Gebäudebereitstellung",
+      "nodes": [
+        "out-local-building"
+      ],
+      "sector": "Staat / Verwaltung",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    },
+    {
+      "id": "local:local-ride",
+      "name": "DRK Rostock · barrieregerechter Fahrdienst",
+      "nodes": [
+        "out-local-ride"
+      ],
+      "sector": "Verkehr",
+      "essential_domain": null,
+      "critical_response": false,
+      "evidence": "Örtlicher Beispielbetrieb / Funktion; Ausfall und Alternativen bleiben Szenarioannahmen."
+    }
+  ],
+  "sources": [
+    {
+      "id": "bbk-method",
+      "name": "BBK · Risikoanalyse im Bevölkerungsschutz, PiB 16",
+      "url": "https://www.bbk.bund.de/SharedDocs/Downloads/DE/Mediathek/Publikationen/PiB/PiB-16-risikoanalyse-bevoelkerungsschutz.pdf?__blob=publicationFile&v=10",
+      "locator": "Kapitel zur Methode, insbesondere Tabelle 2, Druckseite 49",
+      "finding": "Schutzgüter, betroffene Menschen und Haushalte, Ausfallfolgen und Dauer gemeinsam beschreiben. Unterbrechungen werden unter anderem in unter 8 Stunden, 8 Stunden bis 3 Tage und über 3 Tage gegliedert.",
+      "transfer": "Dauer und betroffene Funktionen anzeigen; keine bundesweiten Schadensgrenzen als kommunale Ampelschwellen übernehmen."
+    },
+    {
+      "id": "bbk-scale",
+      "name": "Risikoanalyse Bevölkerungsschutz 2012 · Bundestagsdrucksache 17/12051",
+      "url": "https://dserver.bundestag.de/btd/17/120/1712051.pdf",
+      "locator": "Anhang 2, Druckseite 15",
+      "finding": "Schadensklassen hängen vom Betrachtungsmaßstab ab; kommunale Grenzen müssen angepasst werden.",
+      "transfer": "Die folgenden Ampelregeln sind eine eigene Operationalisierung für diesen Modellausschnitt."
+    },
+    {
+      "id": "ch-kns",
+      "name": "BABS · KNS 2025, Methodenbericht, Version 3.0, Februar 2026",
+      "url": "https://www.babs.admin.ch/dam/de/sd-web/P5wShHylcu1J/2025-KNS-Methodenbericht-final-de.pdf",
+      "locator": "Kap. 4.2, insbesondere G1 und Tabelle 5, Druckseiten 22–23",
+      "finding": "Personenschäden und gesellschaftliche Versorgungsfolgen sind getrennte Indikatoren. G1 erfasst Versorgungsengpässe nach Bedeutung und Personentagen.",
+      "transfer": "Persönliche Dringlichkeit getrennt von gesellschaftlicher Reichweite; ohne reale Betroffenenzahlen keine erfundenen Personentage."
+    },
+    {
+      "id": "usa-lifelines",
+      "name": "FEMA · Incident Stabilization Guide, Operational Draft, 2019",
+      "url": "https://www.fema.gov/sites/default/files/2020-05/IncidentStabilizationGuide.pdf",
+      "locator": "Determining Lifeline and Component Status, Druckseite 14; ergänzend FEMA IS-2901",
+      "finding": "Lifeline-Farben beschreiben Stabilisierung: gestört ohne Lösung, Lösung in Umsetzung, stabilisiert; grau steht für ungeklärten Status.",
+      "transfer": "Keine direkte Farbübernahme: unsere Ampel beschreibt gesellschaftliche Reichweite. Ungeklärte Folgen bleiben grau.",
+      "alternate_url": "https://emilms.fema.gov/is_2901/groups/39.html"
+    },
+    {
+      "id": "usa-complexity",
+      "name": "FEMA · NIMS Incident Complexity Guide",
+      "url": "https://www.fema.gov/sites/default/files/documents/nims-incident-complexity-guide.pdf",
+      "locator": "Overview / Purpose; ergänzend ICS Training Reference Guide",
+      "finding": "Bewältigungskomplexität hängt unter anderem von Ressourcen- und Koordinationsanforderungen ab.",
+      "transfer": "Notrufausfall und ausdrücklich angenommene überörtliche Wirkung gesondert begründen; keine automatische Einstufung nach Firmensitzen.",
+      "alternate_url": "https://training.fema.gov/emiweb/is/icsresource/assets/ics_training_reference_guide.pdf"
+    },
+    {
+      "id": "bbk-stock",
+      "name": "BBK · Essen und Trinken bevorraten",
+      "url": "https://www.bbk.bund.de/DE/Warnung-Vorsorge/Vorsorge/Bevorraten/bevorraten.html",
+      "locator": "Tipps für die Zusammenstellung eines Vorrats, Recherchestand 25.10.2026",
+      "finding": "Aktuelle Empfehlung: möglichst zehn Tage Selbstversorgung; schon drei Tage Vorrat helfen. Individuelle Bedürfnisse berücksichtigen.",
+      "transfer": "72 h und 240 h als Vorsorgemarken. 336 h ist der vom Nutzer gewünschte erweiterte Analysehorizont, keine behauptete BBK-14-Tage-Empfehlung."
+    },
+    {
+      "id": "r3g",
+      "name": "Kerstan, R. & Röhl, A. (2025) · Bewertung von organisationaler Krisen-Resilienz anhand des Resilienzrisikoreifegrades, NBS Working Paper 1/2025",
+      "url": "https://www.econstor.eu/bitstream/10419/316686/1/WP-Studiengang-Sicherheitsmanagement-NBS-1-2025.pdf",
+      "locator": "Druckseiten 6–10, insbesondere Tabellen 2 und 4",
+      "finding": "Qualitative, kontextbezogene Bewertung von Risiko sowie Widerstands- und Bewältigungsfähigkeit; vier Perspektiven und Maßnahmen nach STOPV.",
+      "transfer": "Eigene Reflexionsebene für Vorbereitung und Maßnahmen. Kein automatisch berechneter R3G, keine Umrechnung von Reifegraden in Stunden oder Wahrscheinlichkeiten."
+    },
+    {
+      "id": "rostock-health-counts",
+      "name": "Rostock · Gesundheitseinrichtungen",
+      "url": "https://rathaus.rostock.de/de/rathaus/rostock_in_zahlen/ausgewaehlte_eckdaten/gesundheit_soziales/gesundheitseinrichtungen/288027",
+      "locator": "Tabelle 2023–2025",
+      "finding": "44 Apotheken im Jahr 2025; zwei bettenführende Krankenhäuser in der Bettenstatistik.",
+      "transfer": "Belegte Bestandsgröße getrennt von angenommenen Kapazitätsgewichten, Öffnung und Erreichbarkeit."
+    }
+  ],
+  "rules": [
+    {
+      "level": "green",
+      "name": "Persönliche Auswirkungen",
+      "condition": "Einzelne Betriebe / Personen sind betroffen, aber verbleibende erreichbare Kapazitäten decken den kommunalen Modellbedarf.",
+      "action": "Eigenvorsorge und individuell erforderliche Unterstützung. Grün bedeutet keine Aussage über medizinische Harmlosigkeit oder einen Ausschluss öffentlicher Hilfe."
+    },
+    {
+      "level": "yellow",
+      "name": "Örtliche gesellschaftliche Auswirkungen",
+      "condition": "Mindestens eine örtliche Versorgungsfunktion unterschreitet unter den Kapazitäts-, Bindungs- und Zugangsannahmen ihren Bedarf; kein Rot-Kriterium.",
+      "action": "Örtliche Leistungserbringer und kommunale Koordination; konkrete Ersatzangebote prüfen."
+    },
+    {
+      "level": "red",
+      "name": "Größere / systemische Auswirkungen",
+      "condition": "Eine ungedeckte Versorgungslücke liegt vor UND: überörtliche Wirkung ist gesetzt ODER die Notrufversorgung ist ungedeckt ODER mindestens zwei lebensnotwendige Bereiche erreichen jeweils die im Kommunenprofil eingestellte Unterdeckungsschwelle (Voreinstellung: 10 %).",
+      "action": "Sektorübergreifende Priorisierung und überörtliche Unterstützung prüfen. Die Farbe ist keine Feststellung des Katastrophenfalls."
+    }
+  ],
+  "unknown": "Grau: Ausfallfolgen nicht bestimmbar, insbesondere bei Marktanbietern ohne bestätigte Kundenbeziehung. Keine Zuordnung zu Grün aus Datenmangel.",
+  "none": "Neutral: keine aktiven Auswirkungen im gerechneten Beispielnetz; keine Bestätigung realer Versorgungssicherheit.",
+  "calibration": "Eigene Modellschwellen: Eine gesellschaftliche Versorgungslücke beginnt bei rechnerischer Bedarfsunterdeckung. Rot bei überörtlicher Wirkung, Notrufunterdeckung oder mindestens zwei unterdeckten lebensnotwendigen Bereichen. Arzneimittel und Medizinprodukte zählen als ein Bereich. Ein Betriebsausfall allein reicht nicht. Für das sektorübergreifende Rot-Kriterium müssen mindestens zwei Bereiche jeweils mindestens 10 % Unterdeckung aufweisen; die Schwelle ist im Kommunenprofil veränderbar und keine amtliche Vorgabe.",
+  "stock": {
+    "services": [
+      "food",
+      "water"
+    ],
+    "food_outputs": [
+      "out-local-market",
+      "out-local-tafel",
+      "out-local-meals",
+      "out-ds-mensa",
+      "out-ds-retail"
+    ],
+    "excluded_personas": [
+      "community",
+      "alex"
+    ],
+    "limited_personas_days": {
+      "guest": 1
+    },
+    "note": "Zusätzliche, nutzbare Wasser-/Lebensmittelreserve als Übungsannahme. Nicht auf medizinische Geräte, Arzneimittel, Pflege, Notruf oder Betriebe übertragbar. Für Alex wird kein häuslicher Vorrat unterstellt, für Gäste höchstens ein Tag. Diese Unterschiede sind Personaannahmen."
+  },
+  "r3g": {
+    "source": "r3g",
+    "perspectives": [
+      {
+        "id": "nano",
+        "name": "Nano · intern vorbeugen",
+        "question": "Welche internen Ausfälle werden verhindert oder früh erkannt? Sind Schutz und Ressourcen einsatzfähig?"
+      },
+      {
+        "id": "micro",
+        "name": "Mikro · intern bewältigen",
+        "question": "Wie funktionieren Mindestbetrieb, Entscheidungen, Personal und Wiederanlauf bei diesem Ausfall?"
+      },
+      {
+        "id": "meso",
+        "name": "Meso · extern vorbereiten",
+        "question": "Welche Lieferabhängigkeiten, unabhängigen Alternativen und Vereinbarungen sind tatsächlich geklärt?"
+      },
+      {
+        "id": "macro",
+        "name": "Makro · gemeinsam bewältigen",
+        "question": "Welche Partner können im Ereignisfall wirksam helfen, mit welchen Kapazitäten und Zuständigkeiten?"
+      }
+    ],
+    "stopv": [
+      "Substitution",
+      "Technik",
+      "Organisation",
+      "Personenbezogene Maßnahmen",
+      "Verhaltensbezogene Maßnahmen"
+    ],
+    "note": "Die Fragen sind unsere Anwendung auf das Versorgungsnetz. Ohne moderierte Bewertung und Evidenz entsteht daraus kein R3G-Reifegrad."
+  },
+  "red_domain_shortfall_pct": 10
+}

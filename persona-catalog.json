@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "personas": [
+    {
+      "id": "community",
+      "name": "Stadtgemeinschaft",
+      "area": "Gesamte Kommune",
+      "life": "Gemeinsame Sicht auf alle Dienstleistungen, einschließlich mittelbarer Infrastruktur und externer Vorleistungen.",
+      "strength": "Nachbarschaften, unterschiedliche Fähigkeiten und mehrere Verkehrs- und Versorgungswege.",
+      "needs": [
+        "power",
+        "gas",
+        "fuel",
+        "heat",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "hosting",
+        "hospital",
+        "devices",
+        "meds",
+        "lab",
+        "cash",
+        "card",
+        "payment",
+        "securities",
+        "social",
+        "basic",
+        "mobility",
+        "waste"
+      ],
+      "priority": [
+        "water",
+        "hospital",
+        "food"
+      ],
+      "tolerance": {}
+    },
+    {
+      "id": "marta",
+      "name": "Marta, 79 · alleinlebend",
+      "area": "Ortsteil mit älterer Bevölkerung",
+      "life": "Gehhilfe, drittes Obergeschoss mit Aufzug, Dauermedikation. Kein Auto und kein Smartphone.",
+      "strength": "Kennt Nachbarn, nutzt Telefon und lokale Einkaufsmöglichkeiten.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "heat",
+        "meds",
+        "mobility",
+        "social"
+      ],
+      "priority": [
+        "water",
+        "meds",
+        "heat"
+      ],
+      "tolerance": {
+        "water": 4,
+        "power": 1,
+        "comms": 2,
+        "mobility": 4,
+        "food": 24,
+        "heat": 8
+      }
+    },
+    {
+      "id": "sara",
+      "name": "Sara, 34 · mit zwei Kindern",
+      "area": "Wohnquartier mit Familien",
+      "life": "Alleinerziehend, Kinder 2 und 8 Jahre, Teilzeit und ergänzende Grundsicherung. Kleine Vorräte und wenig freie Zeit.",
+      "strength": "Gut im Quartier vernetzt, organisiert Betreuung mit einer Nachbarin.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "heat",
+        "basic",
+        "social",
+        "mobility",
+        "meds"
+      ],
+      "priority": [
+        "food",
+        "water",
+        "basic"
+      ],
+      "tolerance": {
+        "food": 8,
+        "water": 2,
+        "basic": 0,
+        "payment": 4,
+        "mobility": 2,
+        "heat": 8
+      }
+    },
+    {
+      "id": "jonas",
+      "name": "Jonas, 42 · häuslicher Technikbedarf",
+      "area": "Wohnquartier mit häuslichem Unterstützungsbedarf",
+      "life": "Fortbewegung im Elektrorollstuhl, nächtliche nichtinvasive Beatmung nach individuellem Versorgungsplan. Unterstützt durch Partner und Pflege.",
+      "strength": "Geübter Notfallplan und erreichbares Unterstützungsnetz. Tatsächliche Geräteautonomie hier nicht bekannt.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "heat",
+        "devices",
+        "hospital",
+        "meds",
+        "social",
+        "mobility"
+      ],
+      "priority": [
+        "power",
+        "devices",
+        "hospital"
+      ],
+      "tolerance": {
+        "power": 0,
+        "devices": 2,
+        "hospital": 0,
+        "water": 2,
+        "mobility": 1
+      }
+    },
+    {
+      "id": "leon",
+      "name": "Leon, 23 · Studium und Nebenjob",
+      "area": "Innenstadtnahes Wohnquartier",
+      "life": "Wohnt in einer WG, kein Auto, nutzt digitale Zahlung und Tickets. Einkommen schwankt.",
+      "strength": "Fahrrad, digitale Kenntnisse und unterstützende Mitbewohner.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "hosting",
+        "mobility",
+        "social"
+      ],
+      "priority": [
+        "comms",
+        "food",
+        "mobility"
+      ],
+      "tolerance": {
+        "comms": 1,
+        "food": 12,
+        "mobility": 4,
+        "payment": 12
+      }
+    },
+    {
+      "id": "deniz",
+      "name": "Deniz, 46 · Schichtarbeit im Hafen",
+      "area": "Arbeitsweg zu einem Schichtbetrieb",
+      "life": "Früh- und Nachtschichten, abhängig von verlässlichen Wegen zum Überseehafen. Verantwortung für ein Schulkind.",
+      "strength": "Auto und Kontakte im Betrieb. Kann nicht jede Schicht ins Homeoffice verlegen.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "fuel",
+        "mobility",
+        "heat",
+        "social"
+      ],
+      "priority": [
+        "mobility",
+        "fuel",
+        "food"
+      ],
+      "tolerance": {
+        "fuel": 8,
+        "mobility": 1,
+        "payment": 24,
+        "food": 24
+      }
+    },
+    {
+      "id": "linh",
+      "name": "Linh und Minh, 38 / 40 · Familie",
+      "area": "Wohnquartier mit Familien",
+      "life": "Zwei Kinder, darunter ein Säugling. Verstehen Alltagsdeutsch, brauchen für komplexe Behördeninformationen klare Sprache.",
+      "strength": "Mehrsprachiges Netzwerk, gemeinsame Familienorganisation und Fahrrad.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "heat",
+        "meds",
+        "hospital",
+        "mobility",
+        "social"
+      ],
+      "priority": [
+        "water",
+        "food",
+        "comms"
+      ],
+      "tolerance": {
+        "water": 1,
+        "food": 4,
+        "comms": 1,
+        "hospital": 2,
+        "heat": 8
+      }
+    },
+    {
+      "id": "eva",
+      "name": "Eva, 52 · Pflege und Angehörige",
+      "area": "Wohnquartier mit Angehörigenpflege",
+      "life": "Arbeitet im Gesundheitswesen, unterstützt zusätzlich einen pflegebedürftigen Vater in einem anderen Stadtteil.",
+      "strength": "Fachkenntnisse und familiäre Hilfe, aber zeitlich eng gebunden.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "hospital",
+        "lab",
+        "devices",
+        "meds",
+        "social",
+        "mobility",
+        "heat"
+      ],
+      "priority": [
+        "mobility",
+        "hospital",
+        "comms"
+      ],
+      "tolerance": {
+        "mobility": 1,
+        "comms": 1,
+        "water": 2,
+        "hospital": 0,
+        "food": 24
+      }
+    },
+    {
+      "id": "tobias",
+      "name": "Tobias, 45 · selbstständig",
+      "area": "Wohn- und Arbeitsort einer selbstständigen Person",
+      "life": "Handwerksbetrieb, Mietwohnung mit Gasheizung. Benötigt Fahrzeug, Material, digitale Aufträge und Zahlungseingänge.",
+      "strength": "Werkzeug, Fahrzeug und Kontakte zu anderen Betrieben.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "gas",
+        "fuel",
+        "hosting",
+        "mobility",
+        "securities"
+      ],
+      "priority": [
+        "fuel",
+        "payment",
+        "gas"
+      ],
+      "tolerance": {
+        "fuel": 4,
+        "payment": 4,
+        "hosting": 2,
+        "gas": 8,
+        "comms": 2
+      }
+    },
+    {
+      "id": "renate",
+      "name": "Renate und Uwe, 67 / 70 · Stadtrand",
+      "area": "Randlage / ländlich geprägter Ortsteil",
+      "life": "Eigenheim mit Ölheizung, weitere Wege zum Einkauf und zu Ärzten. Ein Auto im Haushalt.",
+      "strength": "Vorräte, Gartennetzwerk und Platz für Lagerung.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "fuel",
+        "meds",
+        "social",
+        "mobility"
+      ],
+      "priority": [
+        "fuel",
+        "meds",
+        "mobility"
+      ],
+      "tolerance": {
+        "fuel": 24,
+        "water": 8,
+        "food": 48,
+        "mobility": 8,
+        "meds": 8
+      }
+    },
+    {
+      "id": "alex",
+      "name": "Alex, 51 · ohne feste Wohnung",
+      "area": "Öffentlicher Raum / zentrale Anlaufstellen",
+      "life": "Nutzt wechselnde Übernachtungs- und Tagesangebote. Kein sicherer Lagerort, wenig Bargeld und eingeschränkte Lademöglichkeiten.",
+      "strength": "Kennt Anlaufstellen und andere Menschen im Quartier. Hilfen sind keine frei verfügbare Daueralternative.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "hospital",
+        "meds",
+        "basic",
+        "mobility"
+      ],
+      "priority": [
+        "water",
+        "food",
+        "basic"
+      ],
+      "tolerance": {
+        "food": 0,
+        "water": 0,
+        "cash": 0,
+        "power": 0,
+        "basic": 0,
+        "comms": 0
+      }
+    },
+    {
+      "id": "ida",
+      "name": "Ida, 16 · mit Großeltern",
+      "area": "Wohnquartier mit Mehrgenerationenhaushalten",
+      "life": "Schulweg mit dem ÖPNV, betreut ein jüngeres Geschwister zeitweise mit. Familienabsprachen meist per Handy.",
+      "strength": "Freundeskreis und feste Ansprechpersonen an Schule und im Quartier.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "heat",
+        "mobility",
+        "hospital"
+      ],
+      "priority": [
+        "comms",
+        "mobility",
+        "food"
+      ],
+      "tolerance": {
+        "comms": 1,
+        "mobility": 1,
+        "food": 8,
+        "heat": 8
+      }
+    },
+    {
+      "id": "guest",
+      "name": "Nora und Kim · vorübergehend vor Ort",
+      "area": "Vorübergehender Aufenthalt / Verkehrsknoten",
+      "life": "Reisende ohne lokales Netzwerk, benötigen barrierearme Reiseinformation und verlässliche Anschlusswege.",
+      "strength": "Können gegebenenfalls Route ändern, benötigen dafür zugängliche Informationen.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "cash",
+        "card",
+        "payment",
+        "waste",
+        "mobility",
+        "hospital"
+      ],
+      "priority": [
+        "mobility",
+        "comms",
+        "payment"
+      ],
+      "tolerance": {
+        "mobility": 0,
+        "comms": 0,
+        "water": 2,
+        "food": 8,
+        "payment": 2
+      }
+    },
+    {
+      "id": "samira",
+      "name": "Samira, 31 · gehörlos",
+      "area": "Wohnquartier mit besonderen Kommunikationsbedarfen",
+      "life": "Nutzt Gebärdensprache und schriftliche Kommunikation. Arbeitet regulär und organisiert ihren Alltag selbstständig. Telefonische Ansagen und reine Lautsprecherinformationen sind nicht zugänglich.",
+      "strength": "Verlässlicher Freundeskreis, schriftliche digitale Kanäle und Kenntnisse barrierefreier Kommunikation.",
+      "needs": [
+        "power",
+        "water",
+        "sewage",
+        "food",
+        "comms",
+        "hosting",
+        "cash",
+        "card",
+        "payment",
+        "mobility",
+        "social",
+        "waste",
+        "hospital"
+      ],
+      "priority": [
+        "comms",
+        "mobility",
+        "hospital"
+      ],
+      "tolerance": {
+        "comms": 0,
+        "mobility": 2,
+        "hosting": 1,
+        "water": 4,
+        "food": 12
+      }
+    }
+  ]
+}

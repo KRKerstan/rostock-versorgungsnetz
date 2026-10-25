@@ -4,6 +4,12 @@ require 'json'
 require 'pathname'
 root = Pathname.new(__dir__)
 model = JSON.parse(root.join('model.json').read)
+model['persona_catalog'] = JSON.parse(root.join('persona-catalog.json').read)
+model['personas'] = model['persona_catalog']['personas']
+model['default_profile'] = JSON.parse(root.join('municipality-profile.json').read)
+model['profile_template'] = JSON.parse(root.join('municipality-template.json').read)
+model['impact_policy'] = JSON.parse(root.join('impact-policy.json').read)
+abort 'Analyse muss 14 Tage umfassen' unless model['impact_policy']['horizon_hours'] == 336
 model['definitions'] = JSON.parse(root.join('definition-review.json').read)
 model['map'] = JSON.parse(root.join('map.geojson').read)
 model['adminMap'] = JSON.parse(root.join('germany-admin.geojson').read)
@@ -48,7 +54,7 @@ model.fetch('local_community').each do |local|
   end
 end
 
-# Market context is a separate, non-causal relation. Never infer procurement from share.
+# Separate procurement hypotheses from offering comparisons; never infer a real contract from share.
 market = JSON.parse(root.join('market-research.json').read)
 original = ids + model['services'].map { |k| 'k:' + k['id'] } + model['personas'].map { |p| 'p:' + p['id'] }
 abort 'Markteinordnung nicht vollständig' unless market['assessments'].keys.sort == original.sort
@@ -67,13 +73,13 @@ market['providers'].each_value do |provider|
   ref = 'market-provider-' + provider['id']
   abort 'Anbieterquelle fehlt' unless provider['url'].start_with?('https://')
   model['sources'][ref] = { 'title' => provider['name'] + ' · öffentliches Angebot', 'url' => provider['url'] }
-  model['nodes'] << { 'id' => provider['node_id'], 'name' => provider['name'], 'role' => provider['offering'], 'sector' => provider['sector'], 'refs' => [ref], 'open' => false, 'market_provider' => provider['id'], 'status' => 'market_context_only' }
+  model['nodes'] << { 'id' => provider['node_id'], 'name' => provider['name'], 'role' => provider['offering'], 'sector' => provider['sector'], 'refs' => [ref], 'open' => false, 'market_provider' => provider['id'], 'market_profiles' => provider['profiles'], 'status' => 'market_context_only' }
 end
 all_ids = original + market['providers'].values.map { |p| p['node_id'] }
 abort 'Doppelte erweiterte Knoten-ID' unless all_ids.uniq.size == all_ids.size
 abort 'Doppelte Marktkanten-ID' unless market['context_edges'].map { |e| e['id'] }.uniq.size == market['context_edges'].size
 market['context_edges'].each do |e|
-  abort 'Marktkontext darf keine Ausfallkante sein' unless e['kind'] == 'candidate' && e['gate'] == 'context' && all_ids.include?(e['a']) && all_ids.include?(e['b'])
+  abort 'Ungültige Marktrelation' unless e['kind'] == 'candidate' && e['gate'] == 'context' && all_ids.include?(e['a']) && all_ids.include?(e['b'])
 end
 { 'nkt' => 'nkt', 'team' => 'team', 'drk' => 'local-drk', 'vs' => 'vs', 'gp_baetje' => 'local-gp', 'scand' => 'scand' }.each do |provider, organisation|
   company = model['geography']['companies'].find { |c| c['id'] == organisation }
@@ -82,13 +88,24 @@ end
 model['market'] = market
 # The causal review records unknowns explicitly. Public relation evidence alone
 # does not validate failure thresholds, fallback capacity or exercise delays.
+expected_pools = model['impact_policy']['societal_units'].map { |u| u['id'] }.sort
+[model['default_profile'], model['profile_template']].each do |profile|
+  abort 'Kommunenprofil unvollständig' unless profile['supply_pools'].keys.sort == expected_pools
+  abort 'Persona-Version im Kommunenprofil falsch' unless profile['persona_catalog_version'] == model['persona_catalog']['version']
+  profile['supply_pools'].each_value do |pool|
+    abort 'Ungültige Pool-Mitglieder' unless pool['members'].all? { |id| all_ids.include?(id) } && all_ids.include?(pool['output_node'])
+    abort 'Ungültige Anbieterzahl' unless pool['provider_count'].is_a?(Integer) && (pool['provider_count'] == 0 || pool['provider_count'] >= pool['members'].size) && pool['provider_count'] >= 0
+  end
+end
 model['causal_review'] = model['edges'].to_h do |e|
   [e['id'], { 'relation' => e['kind'], 'mechanism_validated' => false, 'time_validated' => false,
     'substitution_validated' => false, 'operationally_validated' => false,
     'missing' => ['Leistungs- und Standortbezug bestätigen', 'Mindestbedarf und Ausfallmechanismus prüfen', 'Bestände und Überbrückung messen', 'Ersatzkapazität und Umschaltzeit bestätigen'] }]
 end
 
-html = root.join('index.template.html').read.sub('__DATA__', JSON.generate(model).gsub('</', '<\/'))
+impact_ids = model['nodes'].map { |n| n['id'] } + model['services'].map { |k| 'k:' + k['id'] }
+abort 'Unbekannte Wirkungsfunktion' unless model['impact_policy']['societal_units'].all? { |u| u['nodes'].all? { |id| impact_ids.include?(id) } }
+html = root.join('index.template.html').read.sub('__PROFILE_LOGIC__', root.join('municipality-profile.js').read).sub('__CAPACITY_LOGIC__', root.join('capacity-model.js').read).sub('__IMPACT_LOGIC__', root.join('impact-logic.js').read).sub('__DATA__', JSON.generate(model).gsub('</', '<\/'))
 abort 'Template-Platzhalter fehlt' if html == root.join('index.template.html').read
 root.join('index.html').write(html)
 puts "Gesamtgraph gebaut: #{model['nodes'].size} Fachknoten, #{model['services'].size} Dienstleistungsgruppen, #{model['personas'].size} Bürgerperspektiven."

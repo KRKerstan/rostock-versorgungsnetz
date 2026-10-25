@@ -1,0 +1,1018 @@
+{
+  "schema_version": 1,
+  "id": "rostock",
+  "name": "Rostock",
+  "state": "MV",
+  "center": {
+    "lat": 54.092,
+    "lon": 12.14
+  },
+  "persona_catalog_version": 1,
+  "model_step_hours": 0.5,
+  "supply_pools": {
+    "service:power": {
+      "id": "service:power",
+      "name": "Stromversorgung",
+      "output_node": "k:power",
+      "members": [
+        "swrgrid"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:gas": {
+      "id": "service:gas",
+      "name": "Gasversorgung",
+      "output_node": "k:gas",
+      "members": [
+        "gas"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:fuel": {
+      "id": "service:fuel",
+      "name": "Kraftstoff- und Heizölversorgung",
+      "output_node": "k:fuel",
+      "members": [
+        "team"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:heat": {
+      "id": "service:heat",
+      "name": "Fernwärmeversorgung",
+      "output_node": "k:heat",
+      "members": [
+        "heat"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:water": {
+      "id": "service:water",
+      "name": "Trinkwasserversorgung",
+      "output_node": "k:water",
+      "members": [
+        "water"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:sewage": {
+      "id": "service:sewage",
+      "name": "Abwasserbeseitigung",
+      "output_node": "k:sewage",
+      "members": [
+        "sewage"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:food": {
+      "id": "service:food",
+      "name": "Lebensmittelversorgung",
+      "output_node": "k:food",
+      "members": [
+        "food"
+      ],
+      "provider_count": 20,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 8,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:comms": {
+      "id": "service:comms",
+      "name": "Sprach- und Datenübertragung",
+      "output_node": "k:comms",
+      "members": [
+        "telecom"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:hosting": {
+      "id": "service:hosting",
+      "name": "Datenspeicherung und -verarbeitung",
+      "output_node": "k:hosting",
+      "members": [
+        "hosting"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:hospital": {
+      "id": "service:hospital",
+      "name": "Stationäre medizinische Versorgung",
+      "output_node": "k:hospital",
+      "members": [
+        "umr",
+        "sued"
+      ],
+      "provider_count": 2,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Zwei bettenführende Beispielkrankenhäuser; Tageskliniken sind keine austauschbare Akutkapazität. Gleiche Gewichte sind eine Annahme.",
+      "source_url": "https://rathaus.rostock.de/de/rathaus/rostock_in_zahlen/ausgewaehlte_eckdaten/gesundheit_soziales/gesundheitseinrichtungen/288027",
+      "source_year": 2024,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:devices": {
+      "id": "service:devices",
+      "name": "Unmittelbar lebenserhaltende Medizinprodukte als Verbrauchsgüter",
+      "output_node": "k:devices",
+      "members": [
+        "medcons"
+      ],
+      "provider_count": 1,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:meds": {
+      "id": "service:meds",
+      "name": "Verschreibungspflichtige Arzneimittel sowie Blut- und Plasmakonzentrate",
+      "output_node": "k:meds",
+      "members": [
+        "pharm",
+        "blood"
+      ],
+      "provider_count": 2,
+      "mode": "required",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:lab": {
+      "id": "service:lab",
+      "name": "Laboratoriumsdiagnostik",
+      "output_node": "k:lab",
+      "members": [
+        "lab"
+      ],
+      "provider_count": 2,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:cash": {
+      "id": "service:cash",
+      "name": "Bargeldversorgung",
+      "output_node": "k:cash",
+      "members": [
+        "ospacash"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:card": {
+      "id": "service:card",
+      "name": "Kartengestützter Zahlungsverkehr",
+      "output_node": "k:card",
+      "members": [
+        "ospacard"
+      ],
+      "provider_count": 3,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:payment": {
+      "id": "service:payment",
+      "name": "Konventioneller Zahlungsverkehr",
+      "output_node": "k:payment",
+      "members": [
+        "ospapay"
+      ],
+      "provider_count": 3,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:securities": {
+      "id": "service:securities",
+      "name": "Wertpapier-/Derivatehandel, Verrechnung und Abwicklung",
+      "output_node": "k:securities",
+      "members": [
+        "ospadepot",
+        "deka"
+      ],
+      "provider_count": 2,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:social": {
+      "id": "service:social",
+      "name": "Leistungen der Sozialversicherung",
+      "output_node": "k:social",
+      "members": [
+        "aok",
+        "drv",
+        "ba",
+        "unfall"
+      ],
+      "provider_count": 4,
+      "mode": "required",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:basic": {
+      "id": "service:basic",
+      "name": "Grundsicherung für Arbeitsuchende",
+      "output_node": "k:basic",
+      "members": [
+        "job"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:mobility": {
+      "id": "service:mobility",
+      "name": "Personen- und Güterverkehr",
+      "output_node": "k:mobility",
+      "members": [
+        "rsag",
+        "db",
+        "scand",
+        "white",
+        "roads",
+        "airport",
+        "euro"
+      ],
+      "provider_count": 7,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "service:waste": {
+      "id": "service:waste",
+      "name": "Entsorgung von Siedlungsabfällen",
+      "output_node": "k:waste",
+      "members": [
+        "waste"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-pharmacy": {
+      "id": "local:local-pharmacy",
+      "name": "Gesundcenter Apotheke Reutershagen",
+      "output_node": "out-local-pharmacy",
+      "members": [
+        "local-pharmacy"
+      ],
+      "provider_count": 44,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 8,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunale Statistik: 44 Apotheken im Jahr 2025.",
+      "source_url": "https://rathaus.rostock.de/de/rathaus/rostock_in_zahlen/ausgewaehlte_eckdaten/gesundheit_soziales/gesundheitseinrichtungen/288027",
+      "source_year": 2025,
+      "common_supplier_share_pct": 33,
+      "common_supplier_profiles": [
+        "pharma_wholesale"
+      ],
+      "common_supplier_buffer_hours": 48
+    },
+    "local:local-gp": {
+      "id": "local:local-gp",
+      "name": "Hausarztpraxis Bätje / Hohlbein",
+      "output_node": "out-local-gp",
+      "members": [
+        "local-gp"
+      ],
+      "provider_count": 20,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 8,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-care": {
+      "id": "local:local-care",
+      "name": "DRK Rostock · ambulante Pflegedienste",
+      "output_node": "out-local-care",
+      "members": [
+        "local-care"
+      ],
+      "provider_count": 3,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-market": {
+      "id": "local:local-market",
+      "name": "E center Schlickeisen",
+      "output_node": "out-local-market",
+      "members": [
+        "local-market"
+      ],
+      "provider_count": 20,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 8,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-tafel": {
+      "id": "local:local-tafel",
+      "name": "Diakonie Rostocker Stadtmission · Rostocker Tafel",
+      "output_node": "out-local-tafel",
+      "members": [
+        "local-tafel"
+      ],
+      "provider_count": 1,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-meals": {
+      "id": "local:local-meals",
+      "name": "DRK Rostock · Essen auf Rädern",
+      "output_node": "out-local-meals",
+      "members": [
+        "local-meals"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-alarm": {
+      "id": "local:local-alarm",
+      "name": "DRK Rostock · Hausnotruf",
+      "output_node": "out-local-alarm",
+      "members": [
+        "local-alarm"
+      ],
+      "provider_count": 3,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-112": {
+      "id": "local:local-112",
+      "name": "Rostock · Integrierte Leitstelle 112",
+      "output_node": "out-local-112",
+      "members": [
+        "local-112"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-command": {
+      "id": "local:local-command",
+      "name": "Rostock · Katastrophenschutz / Krisenkoordination",
+      "output_node": "out-local-command",
+      "members": [
+        "local-command"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-points": {
+      "id": "local:local-points",
+      "name": "Rostock · Notfalltreffpunkte (Ereignisangebot)",
+      "output_node": "out-local-points",
+      "members": [
+        "local-points"
+      ],
+      "provider_count": 1,
+      "mode": "monopoly",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-radio": {
+      "id": "local:local-radio",
+      "name": "NDR · regionale Kriseninformation für Rostock",
+      "output_node": "out-local-radio",
+      "members": [
+        "local-radio"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-childcare": {
+      "id": "local:local-childcare",
+      "name": "DRK Rostock · Kitas und Horte",
+      "output_node": "out-local-childcare",
+      "members": [
+        "local-childcare"
+      ],
+      "provider_count": 98,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 8,
+          "resource": "power"
+        }
+      ],
+      "count_source": "98 Kindertageseinrichtungen einschließlich 22 Horten, Stand Dezember 2024. Keine automatische Übertragbarkeit freier Plätze.",
+      "source_url": "https://rathaus.rostock.de/media/4984/2025%20I%20Quartal.pdf",
+      "source_year": 2024,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-repair": {
+      "id": "local:local-repair",
+      "name": "HTL Haus-Elektrotechnik Lehmkuhl GmbH",
+      "output_node": "out-local-repair",
+      "members": [
+        "local-repair"
+      ],
+      "provider_count": 5,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-building": {
+      "id": "local:local-building",
+      "name": "KOE Rostock · kommunale Gebäudebereitstellung",
+      "output_node": "out-local-building",
+      "members": [
+        "local-building"
+      ],
+      "provider_count": 3,
+      "mode": "bound",
+      "reserve_pct": 0,
+      "access_pct": 0,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    },
+    "local:local-ride": {
+      "id": "local:local-ride",
+      "name": "DRK Rostock · barrieregerechter Fahrdienst",
+      "output_node": "out-local-ride",
+      "members": [
+        "local-ride"
+      ],
+      "provider_count": 3,
+      "mode": "substitutable",
+      "reserve_pct": 10,
+      "access_pct": 100,
+      "extra_failed": 0,
+      "common_dependencies": [
+        {
+          "node": "k:power",
+          "buffer_hours": 24,
+          "resource": "power"
+        }
+      ],
+      "count_source": "Kommunales Szenariomodell: Anzahl ausdrücklich als veränderbare Annahme, nicht als vollständiger Realbestand.",
+      "source_url": null,
+      "source_year": null,
+      "common_supplier_share_pct": 0,
+      "common_supplier_profiles": []
+    }
+  },
+  "staff_couplings": [
+    {
+      "id": "childcare-local-local-pharmacy",
+      "from": "local:local-childcare",
+      "to": "local:local-pharmacy",
+      "dependent_staff_pct": 30,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    },
+    {
+      "id": "childcare-service-food",
+      "from": "local:local-childcare",
+      "to": "service:food",
+      "dependent_staff_pct": 35,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    },
+    {
+      "id": "childcare-local-local-market",
+      "from": "local:local-childcare",
+      "to": "local:local-market",
+      "dependent_staff_pct": 35,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    },
+    {
+      "id": "childcare-local-local-care",
+      "from": "local:local-childcare",
+      "to": "local:local-care",
+      "dependent_staff_pct": 40,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    },
+    {
+      "id": "childcare-service-hospital",
+      "from": "local:local-childcare",
+      "to": "service:hospital",
+      "dependent_staff_pct": 30,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    },
+    {
+      "id": "childcare-local-local-112",
+      "from": "local:local-childcare",
+      "to": "local:local-112",
+      "dependent_staff_pct": 25,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    },
+    {
+      "id": "childcare-local-local-ride",
+      "from": "local:local-childcare",
+      "to": "local:local-ride",
+      "dependent_staff_pct": 25,
+      "backup_care_pct": 25,
+      "staff_reserve_pct": 5,
+      "lag_hours": 8,
+      "enabled": true,
+      "basis": "Modellannahme zur Sozialstruktur, keine erhobenen Arbeitgeber- oder Personaldaten."
+    }
+  ],
+  "node_labels": {},
+  "assumption_note": "Normierter Bedarf 100 %. Gleiche Leistung je Angebot, soweit keine Gewichte angegeben sind. Reserve ist effektiv nutzbare Mehrleistung einschließlich benötigter Ressourcen. Zählgrößen und Personalanteile dürfen als Szenarioannahmen angepasst werden.",
+  "impact_thresholds": {
+    "red_domain_shortfall_pct": 10
+  },
+  "persona_context": {
+    "community": {
+      "area": "Alle Stadtbereiche"
+    },
+    "marta": {
+      "area": "Warnemünde"
+    },
+    "sara": {
+      "area": "Toitenwinkel"
+    },
+    "jonas": {
+      "area": "Groß Klein"
+    },
+    "leon": {
+      "area": "Kröpeliner-Tor-Vorstadt"
+    },
+    "deniz": {
+      "area": "Dierkow-Neu"
+    },
+    "linh": {
+      "area": "Reutershagen"
+    },
+    "eva": {
+      "area": "Südstadt"
+    },
+    "tobias": {
+      "area": "Biestow"
+    },
+    "renate": {
+      "area": "Rostock-Heide"
+    },
+    "alex": {
+      "area": "Stadtmitte"
+    },
+    "ida": {
+      "area": "Lütten Klein"
+    },
+    "guest": {
+      "area": "Warnemünde / Überseehafen"
+    },
+    "samira": {
+      "area": "Gehlsdorf"
+    }
+  },
+  "persona_bindings": {
+    "marta": {
+      "local:local-care": "local-care",
+      "local:local-alarm": "local-alarm"
+    },
+    "jonas": {
+      "local:local-care": "local-care",
+      "local:local-alarm": "local-alarm"
+    },
+    "eva": {
+      "local:local-care": "local-care",
+      "local:local-childcare": "local-childcare"
+    },
+    "renate": {
+      "local:local-care": "local-care",
+      "local:local-alarm": "local-alarm"
+    },
+    "ida": {
+      "local:local-care": "local-care"
+    },
+    "sara": {
+      "local:local-childcare": "local-childcare"
+    },
+    "linh": {
+      "local:local-childcare": "local-childcare"
+    }
+  }
+}
