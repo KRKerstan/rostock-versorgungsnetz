@@ -2,16 +2,17 @@
 
 Eigenständiges Arbeitsbeispiel zur Versorgungsvorsorge in Rostock. Die
 Gesamtansicht verbindet Bürgerperspektiven, kritische Dienstleistungen und
-benötigte Vorleistungen. Sie enthält 268 Knoten und 669 gerichtete Verbindungen,
-einschließlich angenommener Persona-Bedarfe und der Zuordnung von
-Beispielanbietern zu Dienstleistungen.
+benötigte Vorleistungen. Der aktuelle Graph enthält 438 Knoten und 1.335 Verbindungen.
+Das ursprüngliche Szenarionetz umfasst 268 Knoten und 669 Beziehungen; 170 Anbieter-Knoten
+und 666 ausdrücklich nicht kausale Marktverbindungen ergänzen die Marktsicht.
+Die Aussage- und Validierungsgrenzen stehen in [MODELLVALIDIERUNG.md](MODELLVALIDIERUNG.md).
 
 ## Starten und bauen
 
 `index.html` direkt im Browser öffnen. Es sind kein Server, keine externen
 Skripte und keine zusätzlichen Pakete erforderlich.
 
-Nach Änderungen an `model.json`, `definition-review.json`, den Kartengeometrien oder `index.template.html`:
+Nach Änderungen an `model.json`, `market-research.json`, `definition-review.json`, den Kartengeometrien oder `index.template.html`:
 
 ```sh
 ruby build.rb
@@ -23,7 +24,7 @@ und die PDF-Prompt-Anlage der Ausgangsfassung erreichbar.
 
 ## Gesamtgraph
 
-- Alle 233 Fachknoten, 21 Dienstleistungsgruppen und 14 Bürgerperspektiven
+- Die 233 ursprünglichen Fachknoten, 170 zusätzlichen Anbieter-Knoten, 21 Dienstleistungsgruppen und 14 Bürgerperspektiven
   (13 Personas sowie die Gemeinschaftssicht) stehen im selben SVG-Graphen.
 - Die Pfeile zeigen vom Bedarfsträger zur benötigten Vorleistung. Eine Störung
   wirkt entgegen dieser Richtung auf abhängige Funktionen zurück.
@@ -346,3 +347,12 @@ haben alle 15 Auswahlsichten, tiefe Stufenausfälle, Folgewirkung bei der Apothe
 Kettenhervorhebung, Karte und mobile Breite abgedeckt. 90 unabhängige
 Bellman-Ford-Vergleiche bestätigen die berechneten Minimalpfade unter zwei
 Annahmensätzen einschließlich veränderter Puffer und Personalfolge ein/aus.
+
+
+## Marktrecherche und Prüfung der Ausfalllogik · 25.10.2026
+
+Die aktuelle Erweiterung wird in [MODELLVALIDIERUNG.md](MODELLVALIDIERUNG.md) vollständig abgegrenzt. `market-research.json` ergänzt 59 Teilmärkte, 170 Anbieter-Knoten und 666 ausschließlich nicht kausale Marktverbindungen. Die 268 ursprünglichen Knoten bleiben erhalten und werden jeweils begründet eingeordnet. Der Gesamtgraph enthält 438 Knoten und 1.335 Verbindungen. Nur vier Marktprofile besitzen eine belegte Top-3, davon zwei Prozentanteile; die übrigen 55 Profile sind Anbieterbeispiele ohne belegte Rangfolge.
+
+`build.rb` prüft die neue Datenabdeckung und bettet Marktinformationen, zusätzliche Knoten und die Nachweisprüfung ein. Anbieter werden nicht automatisch zu Lieferanten. Marktkontext kann in keiner Schalterstellung eine Ausfallkaskade auslösen. Bei Auswahl eines Marktanbieters ohne bestätigte Kundenbeziehung zeigen Generator, Matrix, örtliche Folgen und Annahmenvergleich ausdrücklich unbekannte Auswirkungen. Eine fehlende Kante bedeutet keine bestätigte Versorgungssicherheit. Der Nachweisstatus jeder Kante des kritischen Pfads ist sichtbar; sämtliche Ausfallmechanismen, Ersatzkapazitäten und Zeitwerte bleiben betrieblich zu bestätigen.
+
+Die bestehende kürzeste-Pfad-Rechnung bleibt eine bedingte Rechnung mit notwendigen Vorleistungen und additiven Übungspuffern. Sie modelliert keine kapazitätsgeprüfte Alternative und keine gesamte Rostocker Marktversorgung. Physische Redundanz, Teilkapazitäten, Lagerverbrauch und Wiederanlauf dürfen erst mit bestätigten Daten als reale Kontinuität gerechnet werden. Das Prüfblatt erfasst hierfür die 270 ursprünglichen Fachkanten.

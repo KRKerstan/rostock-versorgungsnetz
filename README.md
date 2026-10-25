@@ -50,7 +50,7 @@ Die Erweiterung verfolgt die Folgen bis zu benötigten Leistungen für die Stadt
 
 ## Was die Anwendung zeigt
 
-Stand dieser Veröffentlichung: 24. Oktober 2026.
+Stand dieser Veröffentlichung: 25. Oktober 2026.
 
 | Umfang | Inhalt |
 | --- | --- |
@@ -58,7 +58,8 @@ Stand dieser Veröffentlichung: 24. Oktober 2026.
 | BSI-Matrix | 21 Dienstleistungsgruppen der zugrunde gelegten BSI-KritisV, unabhängig von einer Einzeleinstufung der gezeigten Betreiber |
 | Ergänzende örtliche Funktionen | 15 Funktionen einschließlich Apotheke, Hausarztpraxis, Pflege, Einkauf, Tafel, Mahlzeiten, Hausnotruf, Gefahrenabwehr, Kriseninformation, Betreuung, Reparatur und Gebäudebetrieb |
 | Lieferketten | 62 benannte Vorleistungsstränge mit je zwei bis fünf vorgelagerten Stufen |
-| Gesamtnetz | 268 Knoten und 669 gerichtete Verbindungen |
+| Gesamtnetz | 438 Knoten und 1.335 Verbindungen: ursprünglicher Graph mit 268 Knoten / 669 Beziehungen plus 170 Anbieter-Knoten / 666 Marktverbindungen |
+| Marktrecherche | 59 Teilmärkte mit je drei Anbieterbeispielen; vier belegte Top-3, davon zwei mit Prozentanteilen; 55 Rangfolgen offen |
 | Geografie | Europakarte; in Deutschland zuschaltbare Grenzen von 16 Bundesländern und 400 Kreisen bzw. kreisfreien Städten |
 | Quellenvergleich | Öffentlich zugängliche Quellen aus allen 16 Ländern, mit besonderer Betrachtung Mecklenburg-Vorpommerns und ausdrücklichen Aussagegrenzen |
 
@@ -69,13 +70,14 @@ Stand dieser Veröffentlichung: 24. Oktober 2026.
 3. Die ausgewählte Funktion als Ausfall setzen und Dauer sowie Betrachtungszeitpunkt verändern. Die Wiedergabe zeigt den angenommenen Verlauf.
 4. Den kritischen Pfad ansehen: Er bezeichnet die kürzeste im Modell wirksame Überbrückung bis zu einer Persona. Er beschreibt weder die größte Schadenschwere noch die Eintrittswahrscheinlichkeit.
 5. Unter „Lieferketten einer örtlichen Funktion“ die Stränge öffnen. Jede Kante zeigt Übungspuffer, Beziehungsnachweis und Klärungsbedarf. Einzelne Lieferstufen können als Störung gewählt werden.
-6. Annahmen verändern und mit einem gemerkten Stand vergleichen. Die zusätzliche Personalfolge durch Betreuungsausfall ist separat schaltbar.
+6. Unter „Anbieter, Konzentration und Belastbarkeit“ die Markteinordnung zur Auswahl, belegte Top-3 oder alle Profile öffnen. Violette Marktverbindungen sind keine Lieferbeziehungen und übertragen keine Ausfälle.
+7. Annahmen verändern und mit einem gemerkten Stand vergleichen. Die zusätzliche Personalfolge durch Betreuungsausfall ist separat schaltbar.
 
 Mehrere Organisationen am selben Ort lassen sich auffächern. Die Ortsmarker sind ungefähre Ortsmittelpunkte; aufgefächerte Beschriftungen sind keine Gebäudeadressen. Unbekannte Lieferanten erhalten keine erfundene Kartenposition.
 
 ## Quellen, Annahmen und Grenzen
 
-**Die Anwendung ist ein didaktisches Szenariomodell mit realen Rollenbezügen.** Sie enthält keine vollständige Bestandsaufnahme der Rostocker Versorgung, keine Ausfallprognose und keinen Nachweis tatsächlicher Betriebsautonomien.
+**Die Anwendung ist ein bedingtes Lehr- und Untersuchungsmodell mit realen Rollenbezügen.** Sie enthält keine vollständige Bestandsaufnahme der Rostocker Versorgung, keine Ausfallprognose und keinen Nachweis tatsächlicher Betriebsautonomien.
 
 - Öffentlich belegte Rollen und Beziehungen, funktionale Annahmen, historische Bezüge und offene Lieferanten werden unterschieden. Ein Beleg der Existenz eines Unternehmens belegt keinen konkreten Liefervertrag.
 - Sämtliche Stundenwerte und Puffer sind Übungsannahmen. Sie sind keine medizinischen Fristen, rechtlichen Mindestvorgaben oder zugesicherten Betreiberwerte.
@@ -83,6 +85,8 @@ Mehrere Organisationen am selben Ort lassen sich auffächern. Die Ortsmarker sin
 - Eine Rückkehr nach Ablauf der Ausgangsstörung ersetzt keine reale Wiederanlaufplanung. Wahrscheinlichkeiten und physikalische Netzflüsse werden nicht modelliert.
 - Die Personas sind fiktiv. Es werden keine tatsächlichen Patienten-, Haushalts-, Beschäftigten- oder Dienstplandaten verwendet.
 - Weder die Aufnahme in die Karte noch das Erreichen einer fiktiven Zeitgrenze stellt eine behördliche KRITIS-Einstufung dar. Der Ländervergleich ist keine vollständige Synopse sämtlicher aktueller Rechtsvorschriften.
+
+**Ein betrieblich validierter Ausfallpfad liegt noch nicht vor.** Eine beliebige Lieferantenzuteilung würde diese Datenlücke nicht schließen. Für Marktanbieter ohne bestätigte Kundenbeziehungen lautet das Ergebnis „Ausfallfolge nicht bestimmbar“, nicht „kein Engpass“. Der kritische Pfad zeigt deshalb eine Nachweisprüfung pro Kante. Die Anforderungen an ein empirisch belastbares Modell stehen in [MODELLVALIDIERUNG.md](MODELLVALIDIERUNG.md); das [CSV-Prüfblatt](lieferbeziehungen-pruefung.csv) erfasst fehlende Betriebs- und Lieferdaten.
 
 [MODELL.md](MODELL.md) erläutert Datenmodell, Quellenprüfung, Berechnungsregeln, Abgrenzungen und Verifikation ausführlich.
 
@@ -110,6 +114,9 @@ Der beschriebene Lehrkontext bedeutet keine fachliche oder rechtliche Freigabe s
 | `index.html` | Direkt nutzbare, generierte Anwendung |
 | `index.template.html` | HTML, CSS und JavaScript ohne eingebettete Modelldaten |
 | `model.json` | Funktionen, Organisationen, Personas, Kanten, Lieferketten und Quellen |
+| `market-research.json` | Marktprofile, Anbieter, Quellenstatus und Einordnung aller ursprünglichen Knoten |
+| `MODELLVALIDIERUNG.md` | Aussagevertrag, Validierungsgrenzen und Anforderungen an Betriebsdaten |
+| `lieferbeziehungen-pruefung.csv` | Erhebungsblatt für konkrete Liefer- und Ausfallbeziehungen |
 | `definition-review.json` | Ländervergleich mit Quellenarten und Aussagegrenzen |
 | `map.geojson` / `germany-admin.geojson` | Eingebettete Kartengeometrien |
 | `build.rb` | Build und Prüfung der Modellverknüpfungen |
@@ -122,6 +129,8 @@ ruby build.rb
 ```
 
 Der Build benötigt nur Ruby mit den Standardbibliotheken JSON und Pathname. Er prüft unter anderem eindeutige Knoten, Kantenendpunkte, vollständige Dienstleistungsgruppen sowie die Mindesttiefe und lückenlose Verbindung aller ausgewiesenen Lieferketten. Fachliche Aussagen und real vorhandene Ersatzkapazitäten müssen zusätzlich anhand ihrer Quellen geprüft werden.
+
+Der optionale Browsercheck `tests/browser-check.cjs` benötigt Playwright und Chromium in der Testumgebung (`node tests/browser-check.cjs`). `CHROME_PATH` kann einen vorhandenen Browser, `MODEL_URL` eine bereitgestellte Instanz angeben. Er prüft insbesondere, dass Marktverbindungen keine Ausfälle übertragen und unbekannte Lieferbeziehungen nicht als Nullwirkung erscheinen. Für die Anwendung selbst werden diese Testwerkzeuge nicht benötigt.
 
 ## Lizenzen und Kartennachweise
 

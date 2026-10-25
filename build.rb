@@ -48,6 +48,46 @@ model.fetch('local_community').each do |local|
   end
 end
 
+# Market context is a separate, non-causal relation. Never infer procurement from share.
+market = JSON.parse(root.join('market-research.json').read)
+original = ids + model['services'].map { |k| 'k:' + k['id'] } + model['personas'].map { |p| 'p:' + p['id'] }
+abort 'Markteinordnung nicht vollständig' unless market['assessments'].keys.sort == original.sort
+market['markets'].each do |id, m|
+  abort "Ungültige Anbieterzahl #{id}" unless m['providers'].uniq.size == 3 && m['providers'].all? { |p| market['providers'].key?(p) }
+  abort "Unbelegtes Ranking #{id}" if m['ranked'] && (m['refs'].empty? || !m['period'])
+  abort "Unzulässige Marktanteile #{id}" unless m['shares'].values.all? { |v| v.is_a?(Numeric) && (0..100).cover?(v) }
+  if m['status'] == 'published_market_shares'
+    abort "Marktanteilssumme #{id}" unless (m['shares'].values.sum + m['other_share'] - 100).abs < 0.01
+  else
+    abort "Unbelegte Prozentanteile #{id}" unless m['shares'].empty? && m['other_share'].nil?
+  end
+end
+market['assessments'].each_value { |a| abort 'Unbekannter Markt' unless a['markets'].all? { |id| market['markets'].key?(id) } }
+market['providers'].each_value do |provider|
+  ref = 'market-provider-' + provider['id']
+  abort 'Anbieterquelle fehlt' unless provider['url'].start_with?('https://')
+  model['sources'][ref] = { 'title' => provider['name'] + ' · öffentliches Angebot', 'url' => provider['url'] }
+  model['nodes'] << { 'id' => provider['node_id'], 'name' => provider['name'], 'role' => provider['offering'], 'sector' => provider['sector'], 'refs' => [ref], 'open' => false, 'market_provider' => provider['id'], 'status' => 'market_context_only' }
+end
+all_ids = original + market['providers'].values.map { |p| p['node_id'] }
+abort 'Doppelte erweiterte Knoten-ID' unless all_ids.uniq.size == all_ids.size
+abort 'Doppelte Marktkanten-ID' unless market['context_edges'].map { |e| e['id'] }.uniq.size == market['context_edges'].size
+market['context_edges'].each do |e|
+  abort 'Marktkontext darf keine Ausfallkante sein' unless e['kind'] == 'candidate' && e['gate'] == 'context' && all_ids.include?(e['a']) && all_ids.include?(e['b'])
+end
+{ 'nkt' => 'nkt', 'team' => 'team', 'drk' => 'local-drk', 'vs' => 'vs', 'gp_baetje' => 'local-gp', 'scand' => 'scand' }.each do |provider, organisation|
+  company = model['geography']['companies'].find { |c| c['id'] == organisation }
+  company['nodes'] << market['providers'][provider]['node_id'] if company
+end
+model['market'] = market
+# The causal review records unknowns explicitly. Public relation evidence alone
+# does not validate failure thresholds, fallback capacity or exercise delays.
+model['causal_review'] = model['edges'].to_h do |e|
+  [e['id'], { 'relation' => e['kind'], 'mechanism_validated' => false, 'time_validated' => false,
+    'substitution_validated' => false, 'operationally_validated' => false,
+    'missing' => ['Leistungs- und Standortbezug bestätigen', 'Mindestbedarf und Ausfallmechanismus prüfen', 'Bestände und Überbrückung messen', 'Ersatzkapazität und Umschaltzeit bestätigen'] }]
+end
+
 html = root.join('index.template.html').read.sub('__DATA__', JSON.generate(model).gsub('</', '<\/'))
 abort 'Template-Platzhalter fehlt' if html == root.join('index.template.html').read
 root.join('index.html').write(html)
